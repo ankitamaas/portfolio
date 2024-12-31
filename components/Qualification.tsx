@@ -130,7 +130,7 @@ export default function QualificationExperience() {
                 <Card
                   key={`qualification-${index}`}
                   title={item.title}
-                  description={item.description}
+                  description={item.description || "No description available"}  
                   date={item.date}
                 />
               ))
