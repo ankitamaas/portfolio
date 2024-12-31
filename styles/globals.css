@@ -1,0 +1,134 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html {
+  scroll-behavior: smooth !important;
+}
+
+::-moz-selection {
+  color: hsl(0, 0%, 0%);
+  background: #8cd867;
+}
+
+::selection {
+  color: hsl(0, 0%, 0%);
+  background: #8cd867;
+}
+.navbar__item:hover > .navbar__item__bottom {
+  width: 70%;
+}
+
+.navbar__item__bottom {
+  width: 0%;
+  transition: width 200ms ease-in;
+}
+
+.navbar__item__bottom.active {
+  width: 70%;
+}
+
+.full__screen__height {
+  min-height: calc(100vh - 80px);
+}
+
+.animate__view__project__arrow {
+  animation: move 0.75s ease-in infinite alternate-reverse;
+}
+
+.timeline__card__container:nth-child(odd) > .timeline__card {
+  margin-right: auto;
+  margin-left: 0;
+  padding-left: 0;
+  padding-right: 2rem;
+}
+
+@media (max-width: 768px) {
+  .timeline__card__container:nth-child(odd) > .timeline__card {
+    padding-right: 0;
+    padding-left: 2rem;
+  }
+}
+
+@keyframes move {
+  0% {
+    transform: translateY(25%);
+  }
+  100% {
+    transform: translateY(-25%);
+  }
+}
+
+.admin__height {
+  height: calc(100vh - 65px);
+  overflow-y: auto;
+}
+
+.project__container {
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.loader {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  border: 3px solid transparent;
+  border-left: 3px solid white;
+  border-right: 3px solid white;
+  border-bottom: 3px solid white;
+  animation: spin linear 0.75s infinite;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@media (hover: none) {
+  .project__detail_container {
+    transform: translateY(0);
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 10;
+    transition: transform 200ms ease-in-out;
+  }
+}
+
+@media (hover: hover) {
+  .project__detail_container {
+    transform: translateY(100%) scaleY(0.5);
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 10;
+    transition: transform 200ms ease-in-out;
+  }
+
+  .project__detail_container__text {
+    transform: scale(0.9);
+  }
+
+  .project__container:hover > .project__detail_container {
+    transform: translateY(0) scale(1);
+  }
+
+  .project__container:hover
+    > .project__detail_container
+    > .project__detail_container__text {
+    animation: scale 0.45s ease-in 1 alternate-reverse;
+  }
+
+  @keyframes scale {
+    0% {
+      transform: scale(0.9);
+    }
+    50% {
+      transform: scale(1.05);
+    }
+    100% {
+      transform: scale(1);
+    }
+  }
+}
