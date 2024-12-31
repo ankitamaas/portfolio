@@ -23,9 +23,9 @@ export default async function Page() {
       <HeroSection />
       <AboutSection info={info} />
       <Services />
-      <Skills tags={skills} />
+      <Skills  />
       <ProjectsSection projects={projects} />
-      <Qualification qualification={qualification} />
+      <Qualification />
       <ConnectSection />
       <Footer />
     </>
